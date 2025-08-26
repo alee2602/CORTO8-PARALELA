@@ -3,27 +3,33 @@
 #include <string.h>
 #include <omp.h>
 
+#ifndef MAX_FILAS
 #define MAX_FILAS 1100
+#endif
+#ifndef MAX_COLUMNAS
 #define MAX_COLUMNAS 1100
+#endif
+
+/* mover a almacenamiento estático (no stack) */
+static char mapa[MAX_FILAS][MAX_COLUMNAS];
 
 int main() {
-    char mapa[MAX_FILAS][MAX_COLUMNAS];
     int filas = 0, columnas = 0;
     int i, j;
     int contador_total = 0;
     int num_hilos = 0;
     double inicio, fin;
 
-    FILE *archivo = fopen("mapa.txt", "r");
+    FILE *archivo = fopen("mapa_grande.txt", "r");
     if (!archivo) {
-        printf("Error: no se pudo abrir mapa.txt\n");
+        printf("Error: no se pudo abrir mapa_grande.txt\n");
         return 1;
     }
 
     char linea[MAX_COLUMNAS + 2];
     while (fgets(linea, sizeof(linea), archivo)) {
         linea[strcspn(linea, "\n")] = '\0';
-        columnas = strlen(linea);
+        columnas = (int)strlen(linea);
         for (j = 0; j < columnas; j++) {
             mapa[filas][j] = linea[j];
         }
