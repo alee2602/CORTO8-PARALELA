@@ -1,13 +1,13 @@
-# Corto 7 - Paralela
-* **Jose Joaquín Campos** 22155
-* **Derek Fabian Arreaga** 22537
+# Corto 8 - Paralela
+* **Julio García Salas** 22
+* **Mónica Salvatierra** 22249
 
-Este corto consistió en programar una simulación de manera serial y paralela para luego comparar los tiempos, calcular el `speed up` y la `eficiencia` al paralelizar.
+Este corto consistió en mejorar una simulación de paralela en C y realizar su equivalente en Python para luego comparar los tiempos, calcular el `speed up` y la `eficiencia` al paralelizar. 
 
 ## Descripción del problema: Mapa del Tesoro
 
 Se tiene un enorme mapa pirata donde cada **`X`** marca un tesoro, se tiene como **meta** contar cuántos tesoros hay en el mapa.
-El programa tendrá como entrada un archivo [mapa.txt](mapa.txt) como el siguiente:
+El programa tendrá como entrada un archivo [mapa_grande.txt](mapa_grande.txt) como el siguiente:
 
 ```txt
 .....X...
@@ -28,8 +28,6 @@ X...X....
 
 ---
 ## **Versiones de la simulación**
-### Versión Serial:
-Se recorren todas las `"celdas"` y se contará cada **`X`** encontrada, una por una.
 
 ### Versión Paralela:
 Se divide el mapa en **partes** y se contará en paralelo, al finalizar se harán los conteos parciales.
